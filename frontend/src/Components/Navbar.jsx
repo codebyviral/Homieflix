@@ -1,12 +1,14 @@
 import React from "react";
-
+import logo from "../assets/Homieflix.png";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <>
       <nav id="nav" className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
+          <img src={logo} alt="" className="logo" />
           <a className="navbar-brand text-white " href="/">
-            Navbar
+            Homieflix
           </a>
           <button
             className="navbar-toggler"
@@ -68,8 +70,20 @@ const Navbar = () => {
               </li>
             </ul>
             <ul className="navbar-nav">
-              <li className="mx-4 ce-auto">Sign up</li>
-              <li className="ce-auto">Log in</li>
+              <Link to="/signup">
+                <li className="mx-4 ce-auto">
+                  <button className="btn navBtn  btn-light fw-medium rounded-pill">
+                    Sign up
+                  </button>
+                </li>
+              </Link>
+             <Link to="/login">
+             <li className="ce-auto">
+                <button className="btn navBtn  btn-light fw-medium rounded-pill">
+                  Log in
+                </button>
+              </li>
+             </Link>
             </ul>
           </div>
         </div>

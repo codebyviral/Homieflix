@@ -4,10 +4,38 @@
   font-family: "Montserrat", sans-serif;
   font-style: normal;
 }
-.ce-auto{
+.ce-auto {
   cursor: pointer;
 }
-#nav{
+body {
+  background-color: #ef233c;
+  color: white;
+}
+#nav {
   background-color: #ef233c !important;
   color: white !important;
+}
+.logo {
+  width: 50px;
+  border: solid white;
+  border-radius: 2px;
+  margin-right: 20px;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.planCard {
+  border-radius: 20px;
+}
+.navBtn{
+  width: 120px;
+}
+.buyNowBtn{
+  background-color: #ef233c;
+  width: 330px;
+}
+.buyNowBtn:hover{
+  transform: scale(1.05);
+  background-color: #ef233c;
+  width: 330px;
 }

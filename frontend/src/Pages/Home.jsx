@@ -1,9 +1,10 @@
 import React from "react";
-import {Nav} from '../Components/CompIndex'
+import {Navbar,Container} from '../Components/CompIndex'
 const Home = () => {
   return (
     <>
-      <Nav />
+      <Navbar />
+      <Container />
     </>
   );
 };
