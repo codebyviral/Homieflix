@@ -4,7 +4,7 @@ const Login = () => {
   return (
     <>
       <Navbar />
-      <AuthForm type={"Login"} accountExists={true} />
+      <AuthForm type={"Login to your Account ✨"} accountExists={true} />
     </>
   );
 };

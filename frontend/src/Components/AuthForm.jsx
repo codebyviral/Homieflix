@@ -1,19 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import AOS from "aos";
 import "../Styles/Forms.css";
 const AuthForm = (props) => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
     <>
-      <div className="position-absolute top-50 start-50 translate-middle">
+      <div
+        data-aos="flip-up"
+        className="position-absolute top-50 start-50 translate-middle"
+      >
         <form className="form">
-          <p className="form-title">{props.type} to your account</p>
+          <p className="form-title">{props.type}</p>
+          {!props.accountExists ? (
+            <div className="input-container">
+              <input type="text" placeholder="Enter Fullname" />
+              <span></span>
+            </div>
+          ) : null}
           <div className="input-container">
             <input type="email" placeholder="Enter email" />
             <span></span>
           </div>
-          <div className="input-container mt-3">
+          <div className="input-container">
             <input type="password" placeholder="Enter password" />
           </div>
+          {!props.accountExists ? (
+            <div className="input-container">
+              <input type="text" placeholder="Enter Phone" />
+              <span></span>
+            </div>
+          ) : null}
           <button type="submit" className="submit mt-4 rounded-pill">
             {props.type}
           </button>

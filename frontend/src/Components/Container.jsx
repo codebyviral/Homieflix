@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
-import axios from "axios";
+import {DataLoader, PlanCard} from "./CompIndex"
 import "aos/dist/aos.css";
-import { DataLoader, PlanCard } from "./CompIndex";
+import axios from "axios";
 const Container = () => {
   useEffect(() => {
     AOS.init();
@@ -10,13 +10,13 @@ const Container = () => {
   }, []);
 
   const [plans, setPlans] = useState([]);
-  const [dataLoaded,setDataLoaded] = useState(false)
+  const [dataLoaded, setDataLoaded] = useState(false);
   useEffect(() => {
     axios
       .get("http://localhost:4000/plans")
       .then((response) => {
         setPlans(response.data);
-        setDataLoaded(true)
+        setDataLoaded(true);
         console.log(response.data);
       })
       .catch((error) => {
@@ -33,8 +33,8 @@ const Container = () => {
         <h3>Homieflix Streaming Plans</h3>
       </div>
       <div data-aos="fade-up" className="justify-content-center d-flex mt-5">
-        { dataLoaded ? (
-           plans.map((plans) => (
+        {dataLoaded ? (
+          plans.map((plans) => (
             <PlanCard
               key={plans.id}
               title={plans.title}
@@ -44,7 +44,9 @@ const Container = () => {
               users={plans.users}
             />
           ))
-        ) : ( <DataLoader /> ) }
+        ) : (
+          <DataLoader />
+        )}
       </div>
     </>
   );

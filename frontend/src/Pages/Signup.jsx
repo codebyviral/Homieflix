@@ -5,7 +5,7 @@ const Signup = () => {
   return (
     <>
       <Navbar />
-      <AuthForm type={"Sign up"} accountExists={false} />
+      <AuthForm type={"Signup New Account ✨"} accountExists={false} />
     </>
   );
 };
