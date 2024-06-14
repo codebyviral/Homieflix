@@ -1,6 +1,6 @@
 // Controllers are used to typically process the incoming requests, interact with models.
 import { User } from "../models/user-model.js"
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 const Plans = [
     {
         id: 0,
