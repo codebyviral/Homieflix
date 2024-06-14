@@ -6,6 +6,14 @@ import { errorMiddleWare } from "./middleware/error-middleware.js";
 import contactRoute from "./router/contact-router.js"
 const app = express();
 
+// handling CORS policy use
+const corsOptions = {
+    origin: "http://localhost:5173",
+    method: "GET, POST, DELETE, PATCH, HEAD",
+    credentials: true,
+}
+
+app.use(cors(corsOptions))
 app.use(express.json())
 
 app.use(cors())

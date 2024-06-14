@@ -11,6 +11,7 @@ router.route("/").get(authcontrollers.home)
 router.route("/register").post(validate(signupSchema), authcontrollers.register)
 router.route("/login").post(validate(loginSchema), authcontrollers.login)
 router.route("/plans").get(authcontrollers.plans)
+router.route("/message").get(authcontrollers.message)
 
 
 export { router }

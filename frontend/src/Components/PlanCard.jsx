@@ -9,7 +9,7 @@ const PlanCard = (props) => {
       >
         <div className="card-body  fs-6  rounded">
           <div className="text-center nowrap">
-            <h5 className="card-title fs-4 bg-dark text-light rounded mt-3">
+            <h5 className="card-title planTitle fs-4 bg-dark text-light rounded mt-3">
               {props.title}
             </h5>
           </div>
@@ -22,7 +22,7 @@ const PlanCard = (props) => {
             <span className="fw-bold">{props.users} </span>
             <br /> Quality: <span className="fw-bold">Best Video Quality</span>
           </p>
-          <a href="/" className="btn buyNowBtn mt-5 rounded-pill text-light">
+          <a href="/"  className="btn buyNowBtn mt-5 rounded-pill text-light">
             Subscribe
           </a>
         </div>

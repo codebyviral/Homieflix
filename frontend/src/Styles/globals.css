@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 * {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
 }
 .ce-auto {
@@ -27,15 +27,69 @@ body {
 .planCard {
   border-radius: 20px;
 }
-.navBtn{
+.navBtn {
   width: 120px;
 }
-.buyNowBtn{
+.buyNowBtn {
   background-color: #ef233c;
   width: 330px;
 }
-.buyNowBtn:hover{
-  transform: scale(1.05);
+.buyNowBtn:hover {
   background-color: #ef233c;
   width: 330px;
+}
+
+/* tooltip css */
+
+.tooltip_custom {
+  padding: 4px;
+  font-size: 13px;
+  background: rgb(255, 255, 255);
+  color: #ef233c;
+}
+
+.linkItem {
+  margin-top: 10px;
+}
+
+.passwordDiv{
+  /* display: flex; */
+}
+.passImg{
+  width: 25px;
+  top: 4px;
+  position: absolute;
+  left: 265px;
+  height: 20px;
+  margin-top: 20px;
+}
+
+
+
+/* desktop css */
+@media screen and (min-width: 768px) {
+  .signLink {
+    margin-right: 20px;
+  }
+}
+
+/* mobile responsive css code  */
+
+@media screen and (max-width: 768px) {
+  nav {
+    z-index: 10;
+  }
+  .cardFlex {
+    display: flex;
+    flex-direction: column;
+  }
+  .hamImg {
+    width: 25px;
+  }
+  .planTitle {
+    font-size: 20px !important;
+  }
+  .buyNowBtn {
+    width: auto;
+  }
 }

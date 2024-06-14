@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
-import {DataLoader, PlanCard} from "./CompIndex"
+import { DataLoader, PlanCard } from "./CompIndex";
 import "aos/dist/aos.css";
 import axios from "axios";
 const Container = () => {
@@ -20,7 +20,7 @@ const Container = () => {
         console.log(response.data);
       })
       .catch((error) => {
-        console.log(`Axios error: ${error}`);
+        console.log(`Plans API fetch Error: ${error}`);
       });
   }, []);
   return (
@@ -32,7 +32,7 @@ const Container = () => {
       >
         <h3>Homieflix Streaming Plans</h3>
       </div>
-      <div data-aos="fade-up" className="justify-content-center d-flex mt-5">
+      <div data-aos="fade-up" className="justify-content-center cardFlex d-flex mt-5">
         {dataLoaded ? (
           plans.map((plans) => (
             <PlanCard

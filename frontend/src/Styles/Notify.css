@@ -1,0 +1,9 @@
+.notify {
+  width: auto;
+  padding: 10px;
+  margin-top: 100px;
+  font-weight: 500;
+}
+.crossIcon {
+  width: 25px;
+}

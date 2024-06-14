@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../assets/Homieflix.png";
 import { Link } from "react-router-dom";
+import hamburgerMenu from "../assets/icons8-hamburger-menu-100.png";
 const Navbar = () => {
   return (
     <>
@@ -19,7 +20,9 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-ico"> 
+              <img className="hamImg" src={hamburgerMenu} alt="" />
+            </span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -71,19 +74,19 @@ const Navbar = () => {
             </ul>
             <ul className="navbar-nav">
               <Link to="/signup">
-                <li className="mx-4 ce-auto">
+                <li className=" linkItem signLink ce-auto">
                   <button className="btn navBtn  btn-light fw-medium rounded-pill">
                     Sign up
                   </button>
                 </li>
               </Link>
-             <Link to="/login">
-             <li className="ce-auto">
-                <button className="btn navBtn  btn-light fw-medium rounded-pill">
-                  Log in
-                </button>
-              </li>
-             </Link>
+              <Link to="/login">
+                <li className="ce-auto linkItem">
+                  <button className="btn navBtn  btn-light fw-medium rounded-pill">
+                    Log in
+                  </button>
+                </li>
+              </Link>
             </ul>
           </div>
         </div>

@@ -1,10 +1,120 @@
-import React from "react";
-import { Navbar, AuthForm } from "../Components/CompIndex";
+import React, { useState } from "react";
+import { Navbar, AuthForm, Toast } from "../Components/CompIndex";
+import { useNavigate } from "react-router-dom";
+import passwordHideImg from "../assets/icons8-hide-90.png";
+import passwordShowImg from "../assets/icons8-eye-90.png";
+import toast, { Toaster } from "react-hot-toast";
+import { Oval } from "react-loader-spinner";
 const Login = () => {
+  const loginURL = "http://localhost:4000/api/auth/login";
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const handleChange = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+    setUser({
+      ...user,
+      [name]: value,
+    });
+  };
+  const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(true);
+  const handlePasswordShow = () => {
+    setShowPassword((prevValue) => !prevValue);
+    console.log(showPassword);
+    if (showPassword == true) {
+      document.getElementById("password").type = "text";
+    } else {
+      document.getElementById("password").type = "password";
+    }
+  };
+  const notify = () => toast.success("Login Successful");
+  const handleSubmit = async (e) => {
+    setLoading(true);
+    e.preventDefault();
+    try {
+      const response = await fetch(loginURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+      if (response.ok) {
+        setUser({ email: "", password: "" });
+        notify();
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+      }
+    } catch (error) {
+      console.log(`${error}`);
+    }
+  };
+  const submit = (e) => {
+    handleSubmit(e);
+  };
   return (
     <>
       <Navbar />
-      <AuthForm type={"Login to your Account ✨"} accountExists={true} />
+      <Toaster />
+      <div
+        data-aos="flip-up"
+        className="position-absolute top-50 start-50 translate-middle aos-init aos-animate"
+      >
+        <form onSubmit={submit} className="form">
+          <p className="form-title">Login to your Account ✨</p>
+          <div className="input-container">
+            <input
+              name="email"
+              id="email"
+              required
+              value={user.email}
+              autoComplete="off"
+              onChange={handleChange}
+              type="email"
+              placeholder="Enter email"
+            />
+            <span></span>
+          </div>
+          <div className="input-container passwordDiv">
+            <input
+              name="password"
+              id="password"
+              required
+              value={user.password}
+              autoComplete="off"
+              onChange={handleChange}
+              type="password"
+              placeholder="Enter password"
+            />
+            <img
+              onClick={handlePasswordShow}
+              className="passImg"
+              src={showPassword ? passwordHideImg : passwordShowImg}
+              alt="password eye "
+            />
+          </div>
+          <button type="submit" className="submit mt-4 rounded-pill">
+            {loading ? (
+              <div className="loader-container">
+                <Oval color="#fff" height={20} width={20} />
+              </div>
+            ) : (
+              "Login to your Account ✨"
+            )}
+          </button>
+          <p className="signup-link mt-4">
+            No Account?
+            <a href="">
+              <a href="/signup">Sign up</a>
+            </a>
+          </p>
+        </form>
+      </div>
     </>
   );
 };

@@ -27,7 +27,16 @@ const Plans = [
         users: "1 user"
     }
 ]
-
+const messages = [
+    {
+        id: 0,
+        message: "Registration successful  🎉"
+    },
+    {
+        id: 1,
+        message: "Login successful  🎉"
+    }
+]
 const home = async (req, res) => {
     try {
         res.status(200).send('Welcome to Homieflix from Controller')
@@ -72,6 +81,14 @@ const plans = async (req, res) => {
     }
 }
 
+const message = async (req, res) => {
+    try {
+        res.json(messages)
+    } catch (error) {
+        console.log(`Message sending error ${error}`)
+    }
+}
+
 const login = async (req, res, next) => {
     try {
         const { email, password } = req.body;
@@ -85,7 +102,10 @@ const login = async (req, res, next) => {
         const user = await userExists.comparePassword(password);
 
         if (user) {
-            res.status(200).json({ message: "Login Success!", token: await userExists.generateToken() })
+            res.status(200).json({
+                message: "Login Success!",
+                token: await userExists.generateToken()
+            })
 
         } else {
             res.status(401).json({ message: "Invalid email or password" })
@@ -97,6 +117,6 @@ const login = async (req, res, next) => {
     }
 }
 
-const authcontrollers = { home, register, plans, login }
+const authcontrollers = { home, register, plans, login, message }
 
 export { authcontrollers }
