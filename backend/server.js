@@ -24,7 +24,7 @@ app.use("/", router)
 app.use("/api/auth", router)
 app.use("/api/form", contactRoute)
 
-const PORT = process.env.port || 4000;
+const PORT = 4000;
 
 connectDb().then(() => {
     app.listen(PORT, () => {
