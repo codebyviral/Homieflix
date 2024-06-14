@@ -8,7 +8,7 @@ const app = express();
 
 // handling CORS policy use
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: "https://homieflix.onrender.com",
     method: "GET, POST, DELETE, PATCH, HEAD",
     credentials: true,
 }
