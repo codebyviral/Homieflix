@@ -55,6 +55,7 @@ const register = async (req, res) => {
         if (userExists) {
             alert(`Email already Exists`)
             return res.status(400).json({ msg: "Email Already Exists" })
+            console.log(`Email already exists`)
         }
 
         // Password hashing goes here...
