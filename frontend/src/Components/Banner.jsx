@@ -1,5 +1,6 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
+const navigate = useNavigate();
 const Banner = () => {
   return (
     <div className="homie-banner">
@@ -18,7 +19,13 @@ const Banner = () => {
               className="email-input"
               placeholder="Email address"
             />
-            <button type="submit" className="email-button">
+            <button
+              onClick={() => {
+                navigate("/signup");
+              }}
+              type="submit"
+              className="email-button"
+            >
               Get Started
             </button>
           </form>
