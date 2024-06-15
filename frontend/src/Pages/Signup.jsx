@@ -49,6 +49,9 @@ const Signup = () => {
         setTimeout(() => {
           navigate("/login");
         }, 2000);
+      } else {
+        notifyError();
+        setLoading(false);
       }
     } catch (error) {
       notifyError();
