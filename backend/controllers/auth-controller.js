@@ -5,7 +5,7 @@ const Plans = [
     {
         id: 0,
         title: "Basic Streaming Plan",
-        price: "₹29",
+        price: "₹9",
         duration: "1 Day",
         loginCount: "Single device Login",
         users: "1 user"
@@ -13,7 +13,7 @@ const Plans = [
     {
         id: 1,
         title: "Standard Streaming Plan",
-        price: "₹189",
+        price: "₹119",
         duration: "19 Days",
         loginCount: "Single device Login",
         users: "1 user"
@@ -53,9 +53,7 @@ const register = async (req, res) => {
         const userExists = await User.findOne({ email })
 
         if (userExists) {
-            alert(`Email already Exists`)
             return res.status(400).json({ msg: "Email Already Exists" })
-            console.log(`Email already exists`)
         }
 
         // Password hashing goes here...
@@ -91,6 +89,8 @@ const message = async (req, res) => {
     }
 }
 
+const loginError = []
+
 const login = async (req, res, next) => {
     try {
         const { email, password } = req.body;
@@ -110,6 +110,7 @@ const login = async (req, res, next) => {
             })
 
         } else {
+            loginError.push("Invalid Credentials")
             res.status(401).json({ message: "Invalid email or password" })
         }
 
@@ -121,4 +122,4 @@ const login = async (req, res, next) => {
 
 const authcontrollers = { home, register, plans, login, message }
 
-export { authcontrollers }
+export { authcontrollers, loginError }
