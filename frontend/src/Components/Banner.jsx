@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-const navigate = useNavigate();
 const Banner = () => {
+  const navigate = useNavigate();
   return (
     <div className="homie-banner">
       <div className="text-center labelText position-absolute">
