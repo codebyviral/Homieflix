@@ -6,7 +6,7 @@ import passwordShowImg from "../assets/icons8-eye-90.png";
 import toast, { Toaster } from "react-hot-toast";
 import { Oval } from "react-loader-spinner";
 const Login = () => {
-  const loginURL = "http://localhost:4000/api/auth/login";
+  const loginURL = "https://homieflix.onrender.com/api/auth/login";
   const [user, setUser] = useState({
     email: "",
     password: "",

@@ -5,8 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   server:{
     proxy:{
-      '/api':'http://localhost:4000',
-      '/plans':'http://localhost:4000'
+      '/api':'https://homieflix.onrender.com',
+      '/plans':'https://homieflix.onrender.com'
     },
   },
   plugins: [react()],

@@ -6,7 +6,7 @@ import { Oval } from "react-loader-spinner";
 import { Navbar, Toast } from "../Components/CompIndex";
 
 const Signup = () => {
-  const registerURL = "http://localhost:4000/api/auth/register";
+  const registerURL = "https://homieflix.onrender.com/api/auth/register";
 
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -38,7 +38,7 @@ const Signup = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(user),
-      });
+    },);
       if (response.ok) {
         const res_data = await response.json();
         console.log(`res from server : ${res_data}`);
