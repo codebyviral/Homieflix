@@ -12,7 +12,7 @@ const PlanCard = (props) => {
     event.preventDefault();
     const amount = razorpayPrice;
     const currency = "INR";
-    const response = await fetch("hhttps://homieflix.onrender.com/order", {
+    const response = await fetch("https://homieflix.onrender.com/order", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
