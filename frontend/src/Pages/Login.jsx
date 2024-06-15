@@ -7,11 +7,14 @@ import toast, { Toaster } from "react-hot-toast";
 import { Oval } from "react-loader-spinner";
 const Login = () => {
   const loginURL = "https://homieflix.onrender.com/api/auth/login";
+
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+
   const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     let name = e.target.name;
     let value = e.target.value;
@@ -31,7 +34,10 @@ const Login = () => {
       document.getElementById("password").type = "password";
     }
   };
+
   const notify = () => toast.success("Login Successful");
+  const notifyError = () => toast.error("Something went wrong");
+
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
@@ -52,6 +58,8 @@ const Login = () => {
         }, 2000);
       }
     } catch (error) {
+      notifyError();
+      setLoading(false);
       console.log(`${error}`);
     }
   };

@@ -28,6 +28,7 @@ const Signup = () => {
     });
   };
   const notify = () => toast.success("Account Created");
+  const notifyError = () => toast.error("Something Went Wrong");
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
@@ -50,6 +51,8 @@ const Signup = () => {
         }, 2000);
       }
     } catch (error) {
+      notifyError();
+      setLoading(false);
       console.log(error);
     }
   };
@@ -111,13 +114,7 @@ const Signup = () => {
             />
             <span></span>
           </div>
-          {/* <div className="rounded mt-3 mx-2 tooltip_custom d-flex">
-            <input checked className="mx-1" type="checkbox" />
-            <div className="mx-2 mt-3">
-              By clicking signup you agree our
-              <Link to="/termsAndConditions">Terms and Conditions</Link>
-            </div>
-          </div> */}
+
           <button
             type="submit"
             className="submit mt-4 rounded-pill"
