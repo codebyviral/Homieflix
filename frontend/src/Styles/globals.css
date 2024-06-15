@@ -51,10 +51,58 @@ body {
 .linkItem {
   margin-top: 10px;
 }
-
-.passwordDiv {
-  /* display: flex; */
+.homie-banner {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-image: url(../assets/banner.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+
+.homie-banner::before,
+.homie-banner::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 25%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  z-index: 1;
+}
+
+.homie-banner::after {
+  top: auto;
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.labelText {
+  top: 140px;
+  position: relative;
+  z-index: 2;
+}
+
+.captionText {
+  font-size: 18px;
+  font-weight: 400;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 340px;
+}
+
+.bannerText {
+  font-size: 32px;
+  font-weight: 700;
+  z-index: 10;
+}
+
 .passImg {
   width: 25px;
   top: 4px;
@@ -64,10 +112,80 @@ body {
   margin-top: 20px;
 }
 
+/* netflix email clone css */
+
+.email-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.email-form {
+  display: flex;
+  max-width: 600px;
+  width: 100%;
+}
+
+.email-input {
+  flex-grow: 1;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid #8c8c8c;
+  border-radius: 2px 0 0 2px;
+  outline: none;
+}
+
+.email-input::placeholder {
+  color: #8c8c8c;
+}
+
+.email-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 0 2px 2px 0;
+  outline: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.email-button:hover {
+  background-color: #f40612;
+}
+
+@media (max-width: 600px) {
+  .email-form {
+    flex-direction: column;
+  }
+
+  .email-input,
+  .email-button {
+    border-radius: 2px;
+  }
+
+  .email-input {
+    margin-bottom: 10px;
+    border-radius: 2px;
+  }
+
+  .email-button {
+    border-radius: 2px;
+  }
+}
+
 /* desktop css */
 @media screen and (min-width: 768px) {
   .signLink {
     margin-right: 20px;
+  }
+  .homie-banner{
+    display: flex;
+    justify-content: center;
   }
 }
 

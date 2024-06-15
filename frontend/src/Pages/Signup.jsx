@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { Oval } from "react-loader-spinner";
-import { Navbar, Toast } from "../Components/CompIndex";
+import { Navbar } from "../Components/CompIndex";
 import passwordHideImg from "../assets/icons8-hide-90.png";
 import passwordShowImg from "../assets/icons8-eye-90.png";
 

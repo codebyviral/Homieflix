@@ -28,7 +28,7 @@ const Container = () => {
   return (
     <>
       <div
-        data-aos="zoom-in-down"
+        data-aos="fade-in"
         data-aos-duration="1000"
         className="text-center mt-5"
       >

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, AuthForm, Toast } from "../Components/CompIndex";
+import { Navbar } from "../Components/CompIndex";
 import { useNavigate } from "react-router-dom";
 import passwordHideImg from "../assets/icons8-hide-90.png";
 import passwordShowImg from "../assets/icons8-eye-90.png";
