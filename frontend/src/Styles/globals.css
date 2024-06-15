@@ -52,10 +52,10 @@ body {
   margin-top: 10px;
 }
 
-.passwordDiv{
+.passwordDiv {
   /* display: flex; */
 }
-.passImg{
+.passImg {
   width: 25px;
   top: 4px;
   position: absolute;
@@ -63,8 +63,6 @@ body {
   height: 20px;
   margin-top: 20px;
 }
-
-
 
 /* desktop css */
 @media screen and (min-width: 768px) {
@@ -92,7 +90,15 @@ body {
   .buyNowBtn {
     width: auto;
   }
-  .signUpContainer{
+  .signUpContainer {
     margin-top: 20px;
+  }
+  .buyNowBtn {
+    background-color: #ef233c;
+    width: 270px;
+  }
+  .buyNowBtn:hover {
+    background-color: #ef233c;
+    width: 270px;
   }
 }
