@@ -8,7 +8,7 @@ const app = express();
 
 // handling CORS policy use
 const corsOptions = {
-    origin: "http://homieflix.vercel.app",
+    origin: "https://homieflix.vercel.app",
     method: "GET, POST, DELETE, PATCH, HEAD",
     credentials: true,
 }

@@ -53,6 +53,7 @@ const register = async (req, res) => {
         const userExists = await User.findOne({ email })
 
         if (userExists) {
+            alert(`Email already Exists`)
             return res.status(400).json({ msg: "Email Already Exists" })
         }
 
