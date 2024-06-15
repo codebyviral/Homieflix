@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import { DataLoader } from "../Components/CompIndex";
 import homieflixLogo from "../assets/Homieflix.png";
+import { Oval } from "react-loader-spinner";
 const PlanCard = (props) => {
+  // Loader useState
+  const [loading, setLoading] = useState(false);
+
   // Razorpay payment gateway
   const paymentHandler = async (event, razorpayPrice) => {
+    setLoading(true);
     event.preventDefault();
     const amount = razorpayPrice;
     const currency = "INR";
-    const response = await fetch("https://homieflix.onrender.com/order", {
+    const response = await fetch("hhttps://homieflix.onrender.com/order", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -19,7 +24,6 @@ const PlanCard = (props) => {
     });
     const order = await response.json();
     console.log(`Order : ${JSON.stringify(order, null, 2)}`);
-
     var options = {
       key_id: "virallasdm",
       amount: amount,
@@ -56,6 +60,7 @@ const PlanCard = (props) => {
       alert(response.error.metadata.payment_id);
     });
     rzp1.open();
+    setLoading(false);
   };
 
   return (
@@ -85,9 +90,13 @@ const PlanCard = (props) => {
             onClick={(event) => {
               paymentHandler(event, props.razorpayPrice);
             }}
-            className="btn buyNowBtn mt-5 rounded-pill text-light"
+            className="btn loading-btn text-center buyNowBtn mt-5 rounded-pill text-light"
           >
-            Subscribe
+            {loading ? (
+              <Oval color="#fff" height={20} width={20} />
+            ) : (
+              "Subscribe"
+            )}
           </button>
         </div>
       </div>

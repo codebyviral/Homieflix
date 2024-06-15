@@ -3,6 +3,11 @@ svg {
   transform-origin: center;
   animation: rotate4 2s linear infinite;
 }
+.loading-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .loader-container {
   display: flex;
