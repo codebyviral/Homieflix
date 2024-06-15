@@ -1,6 +1,63 @@
 import React, { useState } from "react";
 import { DataLoader } from "../Components/CompIndex";
+import homieflixLogo from "../assets/Homieflix.png";
 const PlanCard = (props) => {
+  // Razorpay payment gateway
+  const paymentHandler = async (event, razorpayPrice) => {
+    event.preventDefault();
+    const amount = razorpayPrice;
+    const currency = "INR";
+    const response = await fetch("https://homieflix.onrender.com/order", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        amount,
+        currency,
+      }),
+    });
+    const order = await response.json();
+    console.log(`Order : ${JSON.stringify(order, null, 2)}`);
+
+    var options = {
+      key_id: "virallasdm",
+      amount: amount,
+      currency: "INR",
+      name: "Homieflix",
+      description: "Test Transaction",
+      image: homieflixLogo,
+      order_id: order.id,
+      handler: function (response) {
+        alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature);
+      },
+      prefill: {
+        name: "Gaurav Kumar",
+        email: "gaurav.kumar@example.com",
+        contact: "9000090000",
+      },
+      notes: {
+        address: "Razorpay Corporate Office",
+      },
+      theme: {
+        color: "#3399cc",
+      },
+    };
+    var rzp1 = new window.Razorpay(options);
+    rzp1.on("payment.failed", function (response) {
+      alert(response.error.code);
+      alert(response.error.description);
+      alert(response.error.source);
+      alert(response.error.step);
+      alert(response.error.reason);
+      alert(response.error.metadata.order_id);
+      alert(response.error.metadata.payment_id);
+    });
+    rzp1.open();
+  };
+
   return (
     <div className="d-flex justify-content-center flex-row">
       <div
@@ -14,7 +71,8 @@ const PlanCard = (props) => {
             </h5>
           </div>
           <p className="card-text mt-5">
-            <span className="fw-bold fs-1">{props.price}</span> <br />
+            <span className="fw-bold fs-1">{`₹${props.price}`}</span>
+            <br />
             Duration: <span className="fw-bold">{props.duration}</span> <br />
             Login: <span className="fw-bold nowrap">{props.loginCount}</span>
             <br /> Video Quality: <span className="fw-bold">4K / UHD</span>{" "}
@@ -22,9 +80,15 @@ const PlanCard = (props) => {
             <span className="fw-bold">{props.users} </span>
             <br /> Quality: <span className="fw-bold">Best Video Quality</span>
           </p>
-          <a href="/"  className="btn buyNowBtn mt-5 rounded-pill text-light">
+          <button
+            id={`plan${props.price}`}
+            onClick={(event) => {
+              paymentHandler(event, props.razorpayPrice);
+            }}
+            className="btn buyNowBtn mt-5 rounded-pill text-light"
+          >
             Subscribe
-          </a>
+          </button>
         </div>
       </div>
     </div>

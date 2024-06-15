@@ -1,11 +1,13 @@
 // Controllers are used to typically process the incoming requests, interact with models.
 import { User } from "../models/user-model.js"
 import bcrypt from 'bcryptjs'
+import Razorpay from 'razorpay';
 const Plans = [
     {
         id: 0,
         title: "Basic Streaming Plan",
-        price: "₹10",
+        price: 10,
+        rzp_price: 1000,
         duration: "1 Day",
         loginCount: "Single device Login",
         users: "1 user"
@@ -13,7 +15,8 @@ const Plans = [
     {
         id: 1,
         title: "Standard Streaming Plan",
-        price: "₹119",
+        price: 119,
+        rzp_price: 12000,
         duration: "1 Month",
         loginCount: "Single device Login",
         users: "1 user"
@@ -21,11 +24,12 @@ const Plans = [
     {
         id: 2,
         title: "Premium Streaming Plan",
-        price: "₹249",
+        price: 249,
+        rzp_price: 25000,
         duration: "1 Month",
         loginCount: "Single device Login",
         users: "2 user"
-    }
+    },
 ]
 const messages = [
     {
@@ -120,6 +124,30 @@ const login = async (req, res, next) => {
     }
 }
 
-const authcontrollers = { home, register, plans, login, message }
+const order = async (req, res) => {
+    try {
+        const payment = new Razorpay({
+            key_id: process.env.RAZORPAY_API_KEY_ID,
+            key_secret: process.env.RAZORPAY_API_KEY_SECRET
+        })
+        // order processing
+
+        if (req.body) {
+            const options = req.body;
+            const order = await payment.orders.create(options)
+            if (!order) {
+                return res.status(500).send(`Order failed`)
+            }
+            res.json(order)
+        } else {
+            return res.status(500).send(`Bad request`)
+        }
+    } catch (error) {
+        console.log(`Order Controller error ${JSON.stringify(error, null, 2)}`)
+        res.status(500).send(error)
+    }
+}
+
+const authcontrollers = { home, register, plans, login, message, order }
 
 export { authcontrollers, loginError }

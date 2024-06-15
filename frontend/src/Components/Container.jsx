@@ -3,6 +3,7 @@ import AOS from "aos";
 import { DataLoader, PlanCard } from "./CompIndex";
 import "aos/dist/aos.css";
 import axios from "axios";
+
 const Container = () => {
   useEffect(() => {
     AOS.init();
@@ -23,6 +24,7 @@ const Container = () => {
         console.log(`Plans API fetch Error: ${error}`);
       });
   }, []);
+
   return (
     <>
       <div
@@ -32,11 +34,15 @@ const Container = () => {
       >
         <h3>Homieflix Streaming Plans</h3>
       </div>
-      <div data-aos="fade-up" className="justify-content-center cardFlex d-flex mt-5">
+      <div
+        data-aos="fade-up"
+        className="justify-content-center cardFlex d-flex mt-5"
+      >
         {dataLoaded ? (
           plans.map((plans) => (
             <PlanCard
               key={plans.id}
+              razorpayPrice={plans.rzp_price}
               title={plans.title}
               price={plans.price}
               duration={plans.duration}

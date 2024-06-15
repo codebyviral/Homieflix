@@ -13,11 +13,13 @@
     "aos": "^2.3.4",
     "axios": "^1.7.2",
     "bcrypt": "^5.1.1",
+    "razorpay": "^2.9.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-loader-spinner": "^6.1.6",
-    "react-router-dom": "^6.23.1"
+    "react-router-dom": "^6.23.1",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
