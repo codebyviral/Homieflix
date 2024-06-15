@@ -4,6 +4,8 @@ import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { Oval } from "react-loader-spinner";
 import { Navbar, Toast } from "../Components/CompIndex";
+import passwordHideImg from "../assets/icons8-hide-90.png";
+import passwordShowImg from "../assets/icons8-eye-90.png";
 
 const Signup = () => {
   const registerURL = "https://homieflix.onrender.com/api/auth/register";
@@ -29,6 +31,19 @@ const Signup = () => {
   };
   const notify = () => toast.success("Account Created");
   const notifyError = () => toast.error("Something Went Wrong");
+
+  const [showPassword, setShowPassword] = useState(true);
+
+  const handlePasswordShow = () => {
+    setShowPassword((prevValue) => !prevValue);
+    console.log(showPassword);
+    if (showPassword == true) {
+      document.getElementById("password").type = "text";
+    } else {
+      document.getElementById("password").type = "password";
+    }
+  };
+
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
@@ -97,6 +112,7 @@ const Signup = () => {
           </div>
           <div className="input-container">
             <input
+              id="password"
               name="password"
               required
               autoComplete="off"
@@ -104,6 +120,12 @@ const Signup = () => {
               onChange={handleInput}
               type="password"
               placeholder="Enter password"
+            />
+            <img
+              onClick={handlePasswordShow}
+              className="passImg"
+              src={showPassword ? passwordHideImg : passwordShowImg}
+              alt="password eye "
             />
           </div>
           <div className="input-container">
