@@ -35,6 +35,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
+    document.getElementById("password").type = "password";
     try {
       const response = await fetch(loginURL, {
         method: "POST",
