@@ -38,7 +38,7 @@ const Signup = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(user),
-    },);
+      });
       if (response.ok) {
         const res_data = await response.json();
         console.log(`res from server : ${res_data}`);
@@ -59,9 +59,9 @@ const Signup = () => {
       <Toaster />
       <div
         data-aos="flip-up"
-        className="position-absolute top-50 start-50 translate-middle aos-init aos-animate"
+        className="position-absolute signUpContainer top-50 start-50 translate-middle aos-init aos-animate"
       >
-        <form onSubmit={handleSubmit} className="form">
+        <form onSubmit={handleSubmit} className="form signUpForm">
           <p className="form-title">Signup New Account ✨</p>
           <div className="input-container">
             <input
@@ -111,13 +111,13 @@ const Signup = () => {
             />
             <span></span>
           </div>
-          <div className="rounded mt-3 mx-2 tooltip_custom d-flex">
+          {/* <div className="rounded mt-3 mx-2 tooltip_custom d-flex">
             <input checked className="mx-1" type="checkbox" />
             <div className="mx-2 mt-3">
               By clicking signup you agree our
               <Link to="/termsAndConditions">Terms and Conditions</Link>
             </div>
-          </div>
+          </div> */}
           <button
             type="submit"
             className="submit mt-4 rounded-pill"

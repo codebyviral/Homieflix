@@ -92,4 +92,7 @@ body {
   .buyNowBtn {
     width: auto;
   }
+  .signUpContainer{
+    margin-top: 20px;
+  }
 }
