@@ -5,7 +5,7 @@ const Plans = [
     {
         id: 0,
         title: "Basic Streaming Plan",
-        price: "₹9",
+        price: "₹10",
         duration: "1 Day",
         loginCount: "Single device Login",
         users: "1 user"
@@ -14,7 +14,7 @@ const Plans = [
         id: 1,
         title: "Standard Streaming Plan",
         price: "₹119",
-        duration: "19 Days",
+        duration: "1 Month",
         loginCount: "Single device Login",
         users: "1 user"
     },
@@ -24,7 +24,7 @@ const Plans = [
         price: "₹249",
         duration: "1 Month",
         loginCount: "Single device Login",
-        users: "1 user"
+        users: "2 user"
     }
 ]
 const messages = [
