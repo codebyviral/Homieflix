@@ -100,6 +100,15 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      <div className="mobileSingIn">
+        <Link to="/login">
+          <li className="ce-auto linkItem">
+            <button className="navBtn bg-homie signIn fw-medium rounded">
+              Sign in
+            </button>
+          </li>
+        </Link>
+      </div>
     </>
   );
 };
