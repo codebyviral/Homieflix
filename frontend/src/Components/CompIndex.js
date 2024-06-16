@@ -4,4 +4,7 @@ import PlanCard from "./PlanCard.jsx";
 import DataLoader from "./DataLoader.jsx";
 import AuthForm from "./AuthForm.jsx"
 import Banner from "./Banner.jsx";
-export { Navbar, Banner, Container, PlanCard, DataLoader, AuthForm }
+import HomeContainer from './HomeContainer';
+import Video from "./Video.jsx";
+export { Navbar, Container, HomeContainer, PlanCard, DataLoader, Banner, Video }
+

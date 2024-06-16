@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import { Navbar } from "../Components/CompIndex";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import passwordHideImg from "../assets/icons8-hide-90.png";
 import passwordShowImg from "../assets/icons8-eye-90.png";
@@ -36,8 +36,8 @@ const Login = () => {
     }
   };
 
-  const notify = () => toast.success(loginSuccess);
-  const notifyError = () => toast.error(anyError);
+  const notify = () => toast.success(loginSuccess.message);
+  const notifyError = () => toast.error(anyError.message);
 
   const handleSubmit = async (e) => {
     setLoading(true);
@@ -122,9 +122,9 @@ const Login = () => {
           </button>
           <p className="signup-link mt-4">
             No Account?
-            <a href="">
+            <p>
               <a href="/signup">Sign up</a>
-            </a>
+            </p>
           </p>
         </form>
       </div>

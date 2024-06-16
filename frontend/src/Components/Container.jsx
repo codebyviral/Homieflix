@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
-import { DataLoader, PlanCard } from "./CompIndex";
+import { DataLoader, PlanCard, HomeContainer } from "./CompIndex";
 import "aos/dist/aos.css";
 import axios from "axios";
 
@@ -27,6 +27,7 @@ const Container = () => {
 
   return (
     <>
+      <HomeContainer />
       <div
         data-aos="fade-in"
         data-aos-duration="1000"
