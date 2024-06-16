@@ -20,7 +20,7 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-ico"> 
+            <span className="navbar-toggler-ico">
               <img className="hamImg" src={hamburgerMenu} alt="" />
             </span>
           </button>
@@ -48,7 +48,7 @@ const Navbar = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Dropdown
+                  More
                 </a>
                 <ul className="dropdown-menu">
                   <li>

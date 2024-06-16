@@ -17,6 +17,19 @@ const Signup = () => {
     password: "",
     Phone: "",
   });
+
+  // Fetch email from homepage is user entered email exists
+
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("email");
+    if (savedEmail) {
+      setUser((prevUser) => ({
+        ...prevUser,
+        email: savedEmail,
+      }));
+    }
+  }, []);
+
   const [loading, setLoading] = useState(false);
   // handling the input values
   const handleInput = (e) => {
