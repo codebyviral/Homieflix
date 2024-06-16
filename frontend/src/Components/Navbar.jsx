@@ -1,16 +1,25 @@
 import React from "react";
-import logo from "../assets/Homieflix.png";
+import textLogo from "../assets/homieLogo.png";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import hamburgerMenu from "../assets/icons8-hamburger-menu-100.png";
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <>
       <nav id="nav" className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <img src={logo} alt="" className="logo" />
-          <a className="navbar-brand text-white " href="/">
-            Homieflix
-          </a>
+          {/* <img src={logo}alt=""className="logo"/> */}
+          <div className="navbar-brand text-center" href="/">
+            <img
+              onClick={() => {
+                navigate("/");
+              }}
+              className="textLogo ce-auto"
+              src={textLogo}
+              alt=""
+            />
+          </div>
           <button
             className="navbar-toggler"
             type="button"
@@ -25,7 +34,7 @@ const Navbar = () => {
             </span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav homie_nav_items me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a
                   className="nav-link text-white active"
@@ -73,17 +82,17 @@ const Navbar = () => {
               </li>
             </ul>
             <ul className="navbar-nav">
-              <Link to="/signup">
+              {/* <Link to="/signup">
                 <li className=" linkItem signLink ce-auto">
-                  <button className="btn navBtn  btn-light fw-medium rounded-pill">
+                  <button className="bg-homie navBtn  fw-medium rounded">
                     Sign up
                   </button>
                 </li>
-              </Link>
+              </Link> */}
               <Link to="/login">
                 <li className="ce-auto linkItem">
-                  <button className="btn navBtn  btn-light fw-medium rounded-pill">
-                    Log in
+                  <button className="navBtn bg-homie signIn fw-medium rounded">
+                    Sign in
                   </button>
                 </li>
               </Link>

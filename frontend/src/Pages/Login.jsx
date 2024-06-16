@@ -5,8 +5,9 @@ import passwordHideImg from "../assets/icons8-hide-90.png";
 import passwordShowImg from "../assets/icons8-eye-90.png";
 import toast, { Toaster } from "react-hot-toast";
 import { Oval } from "react-loader-spinner";
+import { anyError, loginSuccess } from "../Toasts";
 const Login = () => {
-  const loginURL = "https://homieflix.onrender.com/api/auth/login";
+  const loginURL = "http://localhost:4000/login";
 
   const [user, setUser] = useState({
     email: "",
@@ -35,8 +36,8 @@ const Login = () => {
     }
   };
 
-  const notify = () => toast.success("Login Successful");
-  const notifyError = () => toast.error("Something went wrong");
+  const notify = () => toast.success(loginSuccess);
+  const notifyError = () => toast.error(anyError);
 
   const handleSubmit = async (e) => {
     setLoading(true);
@@ -56,11 +57,14 @@ const Login = () => {
         setTimeout(() => {
           navigate("/");
         }, 2000);
+      } else {
+        await notifyError();
       }
     } catch (error) {
-      notifyError();
-      setLoading(false);
-      console.log(`${error}`);
+      if (error) {
+        setLoading(false);
+        await notifyError();
+      }
     }
   };
   const submit = (e) => {

@@ -11,7 +11,7 @@ const app = express();
 
 // handling CORS policy use
 const corsOptions = {
-    origin: "https://homieflix.vercel.app",
+    origin: "http://localhost:5173",
     method: "GET, POST, DELETE, PATCH, HEAD",
     credentials: true,
 }

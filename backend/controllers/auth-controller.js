@@ -93,7 +93,6 @@ const message = async (req, res) => {
     }
 }
 
-const loginError = []
 
 const login = async (req, res, next) => {
     try {
@@ -114,7 +113,6 @@ const login = async (req, res, next) => {
             })
 
         } else {
-            loginError.push("Invalid Credentials")
             res.status(401).json({ message: "Invalid email or password" })
         }
 
@@ -150,4 +148,4 @@ const order = async (req, res) => {
 
 const authcontrollers = { home, register, plans, login, message, order }
 
-export { authcontrollers, loginError }
+export { authcontrollers }

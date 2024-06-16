@@ -1,19 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
 * {
   font-family: "Poppins", sans-serif;
-  font-style: normal;
+}
+:root {
+  --homieRed: #e50815;
 }
 .ce-auto {
   cursor: pointer;
 }
 body {
-  background-color: #ef233c;
+  background-color: #000;
   color: white;
 }
 #nav {
-  background-color: #ef233c !important;
+  background-color: transparent !important;
   color: white !important;
+  height: 60px;
 }
 .logo {
   width: 50px;
@@ -24,18 +26,20 @@ body {
 .nowrap {
   white-space: nowrap;
 }
+.navbar-brand {
+  color: var(--homieRed);
+}
+
 .planCard {
   border-radius: 20px;
 }
-.navBtn {
-  width: 120px;
-}
+
 .buyNowBtn {
-  background-color: #ef233c;
+  background-color: var(--homieRed);
   width: 330px;
 }
 .buyNowBtn:hover {
-  background-color: #ef233c;
+  background-color: var(--homieRed);
   width: 330px;
 }
 
@@ -45,11 +49,17 @@ body {
   padding: 4px;
   font-size: 13px;
   background: rgb(255, 255, 255);
-  color: #ef233c;
+  color: var(--homieRed);
 }
 
 .linkItem {
   margin-top: 10px;
+}
+
+.bg-homie {
+  background: var(--homieRed);
+  color: #fff;
+  border: none;
 }
 .homie-banner {
   position: relative;
@@ -83,24 +93,18 @@ body {
 }
 
 .labelText {
-  top: 140px;
+  top: 220px;
   position: relative;
   z-index: 2;
 }
 
 .captionText {
-  font-size: 18px;
+  white-space: nowrap;
   font-weight: 400;
   display: flex;
   margin-left: auto;
   margin-right: auto;
   width: 340px;
-}
-
-.bannerText {
-  font-size: 32px;
-  font-weight: 700;
-  z-index: 10;
 }
 
 .passImg {
@@ -145,7 +149,7 @@ body {
 .email-button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #e50914;
+  background-color: var(--homieRed);
   color: #fff;
   border: none;
   cursor: pointer;
@@ -155,10 +159,94 @@ body {
 }
 
 .email-button:hover {
-  background-color: #f40612;
+  background-color: var(--homieRed);
+}
+.homie_nav_items {
+  display: none;
+}
+.fs-24 {
+  font-size: 24px;
+}
+.fs-20 {
+  font-size: 20px;
 }
 
-@media (max-width: 600px) {
+/* desktop css */
+@media screen and (min-width: 768px) {
+  .bannerText {
+    font-size: 48px;
+    font-weight: 700;
+    z-index: 10;
+  }
+
+  .textLogo {
+    width: 150px;
+    margin-left: 188px;
+    height: auto;
+  }
+  .signLink {
+    margin-right: 20px;
+  }
+  .homie-banner {
+    display: flex;
+    justify-content: center;
+  }
+  .signIn {
+    position: absolute;
+    top: 30px;
+    right: 192px;
+    box-sizing: border-box;
+    width: 76.9px;
+    height: 32px;
+  }
+}
+.d-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* mobile responsive css code  */
+
+@media screen and (max-width: 768px) {
+  .labelText {
+    top: 80px;
+    position: relative;
+    z-index: 2;
+  }
+  .captionText{
+    font-size: 16px;
+  }
+  .bannerText{
+    font-size: 32px;
+    font-weight: 700;
+  }
+  nav {
+    z-index: 10;
+  }
+  .spanCaption{
+    font-size: 18px;
+    padding: 20px;
+  }
+  button.navbar-toggler{
+    visibility: hidden;
+  }
+  .cardFlex {
+    display: flex;
+    flex-direction: column;
+  }
+  .hamImg {
+    width: 25px;
+  }
+  .textLogo {
+    width: 100px;
+    height: auto;
+  }
+  .planTitle {
+    font-size: 20px !important;
+  }
+  .buyNowBtn {
+    width: auto;
+  }
   .email-form {
     flex-direction: column;
   }
@@ -176,47 +264,15 @@ body {
   .email-button {
     border-radius: 2px;
   }
-}
-
-/* desktop css */
-@media screen and (min-width: 768px) {
-  .signLink {
-    margin-right: 20px;
-  }
-  .homie-banner{
-    display: flex;
-    justify-content: center;
-  }
-}
-
-/* mobile responsive css code  */
-
-@media screen and (max-width: 768px) {
-  nav {
-    z-index: 10;
-  }
-  .cardFlex {
-    display: flex;
-    flex-direction: column;
-  }
-  .hamImg {
-    width: 25px;
-  }
-  .planTitle {
-    font-size: 20px !important;
-  }
-  .buyNowBtn {
-    width: auto;
-  }
   .signUpContainer {
     margin-top: 20px;
   }
   .buyNowBtn {
-    background-color: #ef233c;
+    background-color: var(--homieRed);
     width: 270px;
   }
   .buyNowBtn:hover {
-    background-color: #ef233c;
+    background-color: var(--homieRed);
     width: 270px;
   }
 }
