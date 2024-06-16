@@ -7,7 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { Oval } from "react-loader-spinner";
 import { anyError, loginSuccess } from "../Toasts";
 const Login = () => {
-  const loginURL = "http://localhost:4000/login";
+  const loginURL = "https://homieflix.onrender.com/login";
 
   const [user, setUser] = useState({
     email: "",

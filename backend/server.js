@@ -11,7 +11,7 @@ const app = express();
 
 // handling CORS policy use
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: "https://homieflix.vercel.app",
     method: "GET, POST, DELETE, PATCH, HEAD",
     credentials: true,
 }
@@ -32,7 +32,7 @@ const PORT = 4000;
 
 connectDb().then(() => {
     app.listen(PORT, () => {
-        console.log(`Server at http://localhost:${PORT}`);
+        console.log(`Homieflix is live at  http://localhost:${PORT} 🎉`);
     })
 })
 
