@@ -25,6 +25,7 @@ const Banner = () => {
         <div className="email-container">
           <form className="email-form">
             <input
+              required
               id="email"
               type="email"
               className="email-input"
