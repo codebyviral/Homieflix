@@ -2,6 +2,7 @@ import {
   Home,
   Signup,
   Login,
+  Blog,
   TermsAndConditions,
   Error,
 } from "./Pages/PageIndex";
@@ -15,6 +16,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/sign-up" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/newsroom" element={<Blog />} />
         <Route path="/termsAndConditions" element={<TermsAndConditions />} />
         <Route path="*" element={<Error />} />
       </Routes>

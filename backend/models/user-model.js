@@ -1,28 +1,37 @@
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs"
-const userSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        require: true,
+
+
+const userSchema = new mongoose.Schema(
+    {
+        username: {
+            type: String,
+            require: true,
+            unique: true,
+            lowercase: true,
+        },
+        email: {
+            type: String,
+            require: true,
+        },
+        password: {
+            type: String,
+            require: [true, 'Password is required'],
+        },
+        phone: {
+            type: String,
+            require: true,
+        },
+        isAdmin: {
+            type: Boolean,
+            default: false,
+        },
     },
-    email: {
-        type: String,
-        require: true,
-    },
-    password: {
-        type: String,
-        require: true,
-    },
-    phone: {
-        type: String,
-        require: true,
-    },
-    isAdmin: {
-        type: Boolean,
-        default: false,
-    },
-})
+    {
+        timestamps: true
+    }
+)
 
 // secure password with bcrypt
 

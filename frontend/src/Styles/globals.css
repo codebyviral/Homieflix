@@ -176,15 +176,23 @@ body {
   .mobileSingIn {
     display: none;
   }
-  .video {
+  /* .video {
     position: absolute;
     right: 630px;
     top: 770px;
     width: 450px !important;
     height: 250px !important;
+  } */
+  .videoVid {
+    position: absolute;
+    right: 260px;
+    top: 850px;
   }
-  .tvFrame{
+  .tvFrame {
     z-index: 5;
+    position: absolute;
+    right: 189px;
+    margin-top: 172px;
   }
   .bannerText {
     font-size: 48px;
@@ -216,12 +224,40 @@ body {
     height: 32px;
     z-index: 10;
   }
+  .hc-title {
+    font-size: 48px;
+    font-weight: 900;
+    margin-left: -290px;
+  }
+  .hc-caption {
+    font-size: 24px;
+    font-weight: 400;
+    max-width: 700px;
+    text-align: left;
+  }
+  .leftTvText {
+    margin-top: 185px;
+    margin-left: 192px;
+  }
+  .homie-banner {
+    position: relative;
+    width: 100%;
+    height: 625px;
+    background-image: url(../assets/banner.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .tvContainer {
+    display: flex;
+  }
 }
+
 .d-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 /* mobile responsive css code  */
 
 @media screen and (max-width: 768px) {
@@ -328,7 +364,7 @@ body {
     height: 17.0625rem;
     z-index: 6;
   }
-  .video{
+  .video {
     position: absolute;
   }
   .videoVid {
@@ -336,5 +372,8 @@ body {
     width: 350px;
     z-index: 5;
   }
-  
+  .tvContainer {
+    display: flex;
+    flex-direction: column !important;
+  }
 }
