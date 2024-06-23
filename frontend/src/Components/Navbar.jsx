@@ -97,7 +97,7 @@ const Navbar = () => {
                 <>
                   <Link to="/logout">
                     <li className="ce-auto linkItem">
-                      <button className="navBtn bg-homie signIn fw-medium rounded">
+                      <button className="navBtn nowrap bg-homie signIn fw-medium rounded">
                         Sign out
                       </button>
                     </li>
@@ -107,8 +107,8 @@ const Navbar = () => {
                 <>
                   <Link to="/login">
                     <li className="ce-auto linkItem">
-                      <button className="navBtn bg-homie signIn fw-medium rounded">
-                        Log in
+                      <button className="navBtn nowrap bg-homie signIn fw-medium rounded">
+                        Sign in 
                       </button>
                     </li>
                   </Link>
@@ -123,7 +123,7 @@ const Navbar = () => {
           <div className="mobileSingIn">
             <Link to="/logout">
               <li className="ce-auto linkItem">
-                <button className="navBtn bg-homie signIn fw-medium rounded">
+                <button className="navBtn nowrap bg-homie signIn fw-medium rounded">
                   Sign out
                 </button>
               </li>
@@ -135,7 +135,7 @@ const Navbar = () => {
           <div className="mobileSingIn">
             <Link to="/login">
               <li className="ce-auto linkItem">
-                <button className="navBtn bg-homie signIn fw-medium rounded">
+                <button className="navBtn nowrap bg-homie signIn fw-medium rounded">
                   Sign in
                 </button>
               </li>
