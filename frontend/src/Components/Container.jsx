@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { DataLoader, PlanCard, HomeContainer } from "./CompIndex";
 import "aos/dist/aos.css";
 import axios from "axios";
+import { Oval } from "react-loader-spinner";
 
 const Container = () => {
   useEffect(() => {
@@ -62,7 +63,12 @@ const Container = () => {
               />
             ))
           ) : (
-            <DataLoader />
+            <div className="loader-container">
+              <>
+                <Oval color="#fff" height={20} width={20} />
+                Processing...
+              </>
+            </div>
           )}
         </div>
       </div>

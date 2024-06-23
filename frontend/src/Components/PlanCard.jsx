@@ -95,7 +95,7 @@ const PlanCard = (props) => {
             {loading ? (
               <>
                 <Oval color="#fff" height={20} width={20} />
-                Placing Order...
+                Processing...
               </>
             ) : (
               "Subscribe"

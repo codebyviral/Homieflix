@@ -158,7 +158,7 @@ const Signup = () => {
 
           <button
             type="submit"
-            className="submit mt-4 rounded-pill"
+            className="submit btn-submit mt-4 rounded-pill"
             disabled={loading}
           >
             {loading ? (

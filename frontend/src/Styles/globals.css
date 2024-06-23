@@ -16,7 +16,7 @@
   text-decoration: underline;
 }
 .streamingText {
-  font-size: 48px;
+  font-size: 38px;
   color: #fff;
   font-weight: 700;
 }
@@ -87,7 +87,7 @@ body {
 .homie-banner {
   position: relative;
   width: 100%;
-  height: 480px;
+  height: 380px;
   background-image: url(../assets/banner.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
