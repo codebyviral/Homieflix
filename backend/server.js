@@ -4,8 +4,9 @@ import { connectDb } from "./db.js";
 import cors from "cors"
 import { errorMiddleWare } from "./middleware/error-middleware.js";
 import contactRoute from "./router/contact-router.js"
-import Razorpay from "razorpay"
-import crypto from "crypto"
+import blogRoute from "./router/blog-router.js"
+
+
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use("/", router)
 
 app.use("/api/auth", router)
 app.use("/api/form", contactRoute)
+app.use("/api/newsroom", blogRoute)
 
 const PORT = 4000;
 

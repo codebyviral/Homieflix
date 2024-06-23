@@ -4,12 +4,16 @@ import { Oval } from "react-loader-spinner";
 import { Toaster, toast } from "react-hot-toast";
 import { emptyEmail } from "../Toasts";
 const Banner = () => {
+
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+
   const fillEmailToast = () => {
     toast.error(emptyEmail.message);
     setLoading(false);
   };
+  
   const handleEmail = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -43,13 +47,13 @@ const Banner = () => {
               required
               id="email"
               type="email"
-              className="email-input"
+              className="email-input rounded-start"
               placeholder="Email address"
             />
             <button
               onClick={handleEmail}
               type="submit"
-              className="email-button loading-btn"
+              className="email-button rounded-end loading-btn"
             >
               {loading ? (
                 <Oval color="#fff" height={20} width={20} />

@@ -109,9 +109,9 @@ const login = async (req, res, next) => {
         if (user) {
             res.status(200).json({
                 message: "Login Success!",
-                token: await userExists.generateToken()
+                token: await userExists.generateToken(),
             })
-
+            
         } else {
             res.status(401).json({ message: "Invalid email or password" })
         }
@@ -128,6 +128,7 @@ const order = async (req, res) => {
             key_id: process.env.RAZORPAY_API_KEY_ID,
             key_secret: process.env.RAZORPAY_API_KEY_SECRET
         })
+
         // order processing
 
         if (req.body) {

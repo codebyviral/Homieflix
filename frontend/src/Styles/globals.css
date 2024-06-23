@@ -5,9 +5,28 @@
 :root {
   --homieRed: #e50815;
 }
+/* repititive CSS  */
+.text-red {
+  color: var(--homieRed);
+}
 .ce-auto {
   cursor: pointer;
 }
+.hov-under:hover {
+  text-decoration: underline;
+}
+.streamingText {
+  font-size: 48px;
+  color: #fff;
+  font-weight: 700;
+}
+.streamingText:hover {
+  color: var(--homieRed);
+}
+.homie-container-2 {
+  /* margin-top: 200px; */
+}
+
 body {
   background-color: #000;
   color: white;
@@ -41,6 +60,10 @@ body {
 .buyNowBtn:hover {
   background-color: var(--homieRed);
   width: 330px;
+}
+
+.fc-black {
+  color: black;
 }
 
 /* tooltip css */
@@ -173,6 +196,9 @@ body {
 
 /* desktop css */
 @media screen and (min-width: 768px) {
+  .planDivs {
+    margin-top: 250px;
+  }
   .mobileSingIn {
     display: none;
   }

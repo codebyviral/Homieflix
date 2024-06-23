@@ -1,9 +1,13 @@
-import React from "react";
-import textLogo from "../assets/homieLogo.png";
+/* eslint-disable no-unused-vars */
+
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import hamburgerMenu from "../assets/icons8-hamburger-menu-100.png";
+import { textLogo, hamburgerMenu } from "../Pages/URLs";
+import { useAuth } from "../store/auth";
+
 const Navbar = () => {
+  const { isLoggedin } = useAuth();
   const navigate = useNavigate();
   return (
     <>
@@ -17,7 +21,7 @@ const Navbar = () => {
               }}
               className="textLogo ce-auto"
               src={textLogo}
-              alt=""
+              alt="  "
             />
           </div>
           <button
@@ -89,26 +93,56 @@ const Navbar = () => {
                   </button>
                 </li>
               </Link> */}
-              <Link to="/login">
-                <li className="ce-auto linkItem">
-                  <button className="navBtn bg-homie signIn fw-medium rounded">
-                    Sign in
-                  </button>
-                </li>
-              </Link>
+              {isLoggedin ? (
+                <>
+                  <Link to="/logout">
+                    <li className="ce-auto linkItem">
+                      <button className="navBtn bg-homie signIn fw-medium rounded">
+                        Sign out
+                      </button>
+                    </li>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/login">
+                    <li className="ce-auto linkItem">
+                      <button className="navBtn bg-homie signIn fw-medium rounded">
+                        Log in
+                      </button>
+                    </li>
+                  </Link>
+                </>
+              )}
             </ul>
           </div>
         </div>
       </nav>
-      <div className="mobileSingIn">
-        <Link to="/login">
-          <li className="ce-auto linkItem">
-            <button className="navBtn bg-homie signIn fw-medium rounded">
-              Sign in
-            </button>
-          </li>
-        </Link>
-      </div>
+      {isLoggedin ? (
+        <>
+          <div className="mobileSingIn">
+            <Link to="/login">
+              <li className="ce-auto linkItem">
+                <button className="navBtn bg-homie signIn fw-medium rounded">
+                  Sign out
+                </button>
+              </li>
+            </Link>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="mobileSingIn">
+            <Link to="/login">
+              <li className="ce-auto linkItem">
+                <button className="navBtn bg-homie signIn fw-medium rounded">
+                  Sign in
+                </button>
+              </li>
+            </Link>
+          </div>
+        </>
+      )}
     </>
   );
 };

@@ -1,11 +1,12 @@
+/* eslint-disable no-unused-vars */
 import { Navbar } from "../Components/CompIndex";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { passwordHideImg, passwordShowImg } from "./URLs";
 import { useNavigate } from "react-router-dom";
-import passwordHideImg from "../assets/icons8-hide-90.png";
-import passwordShowImg from "../assets/icons8-eye-90.png";
 import toast, { Toaster } from "react-hot-toast";
 import { Oval } from "react-loader-spinner";
 import { anyError, loginSuccess } from "../Toasts";
+import { useAuth } from "../store/auth";
 const Login = () => {
   const loginURL = "https://homieflix.onrender.com/login";
 
@@ -24,11 +25,12 @@ const Login = () => {
       [name]: value,
     });
   };
+
   const navigate = useNavigate();
+  const { storeTokenInLS } = useAuth();
   const [showPassword, setShowPassword] = useState(true);
   const handlePasswordShow = () => {
     setShowPassword((prevValue) => !prevValue);
-    console.log(showPassword);
     if (showPassword == true) {
       document.getElementById("password").type = "text";
     } else {
@@ -36,7 +38,12 @@ const Login = () => {
     }
   };
 
-  const notify = () => toast.success(loginSuccess.message);
+  const notify = () => {
+    toast.success(loginSuccess.message);
+    setTimeout(() => {
+      navigate("/");
+    }, 2000);
+  };
   const notifyError = () => toast.error(anyError.message);
 
   const handleSubmit = async (e) => {
@@ -53,10 +60,10 @@ const Login = () => {
       });
       if (response.ok) {
         setUser({ email: "", password: "" });
+        const res_data = await response.json();
+        console.log(`Response from server ${res_data.token}`);
+        storeTokenInLS(res_data.token);
         notify();
-        setTimeout(() => {
-          navigate("/");
-        }, 2000);
       } else {
         await notifyError();
       }
@@ -67,9 +74,6 @@ const Login = () => {
       }
     }
   };
-  const submit = (e) => {
-    handleSubmit(e);
-  };
   return (
     <>
       <Navbar />
@@ -78,7 +82,7 @@ const Login = () => {
         data-aos="flip-up"
         className="position-absolute top-50 start-50 translate-middle aos-init aos-animate"
       >
-        <form onSubmit={submit} className="form">
+        <form onSubmit={handleSubmit} className="form">
           <p className="form-title">Login to your Account ✨</p>
           <div className="input-container">
             <input

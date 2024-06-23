@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
+import { useNavigate } from "react-router-dom";
 import { DataLoader, PlanCard, HomeContainer } from "./CompIndex";
 import "aos/dist/aos.css";
 import axios from "axios";
@@ -14,47 +15,56 @@ const Container = () => {
   const [dataLoaded, setDataLoaded] = useState(false);
   useEffect(() => {
     axios
-      .get("https://homieflix.onrender.com/plans")
+      .get("http://localhost:4000/plans")
       .then((response) => {
         setPlans(response.data);
         setDataLoaded(true);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(`Plans API fetch Error: ${error}`);
       });
   }, []);
 
+  const navigate = useNavigate();
+
   return (
     <>
       <HomeContainer />
-      <br /><br /><br /><br /><br />
-      <div
-        data-aos="fade-in"
-        data-aos-duration="1000"
-        className="text-center mt-5"
-      >
-        <h3>Homieflix Streaming Plans</h3>
-      </div>
-      <div
-        data-aos="fade-up"
-        className="justify-content-center cardFlex d-flex mt-5"
-      >
-        {dataLoaded ? (
-          plans.map((plans) => (
-            <PlanCard
-              key={plans.id}
-              razorpayPrice={plans.rzp_price}
-              title={plans.title}
-              price={plans.price}
-              duration={plans.duration}
-              loginCount={plans.loginCount}
-              users={plans.users}
-            />
-          ))
-        ) : (
-          <DataLoader />
-        )}
+      <div className="planDivs">
+        <div
+          data-aos="fade-in"
+          data-aos-duration="1000"
+          className="text-center ce-auto homie-container-2 mt-5"
+        >
+          <h3
+            onClick={() => {
+              navigate("/newsroom");
+            }}
+            className="streamingText"
+          >
+            Homieflix Streaming Plans
+          </h3>
+        </div>
+        <div
+          data-aos="fade-up"
+          className="justify-content-center cardFlex d-flex mt-5"
+        >
+          {dataLoaded ? (
+            plans.map((plans) => (
+              <PlanCard
+                key={plans.id}
+                razorpayPrice={plans.rzp_price}
+                title={plans.title}
+                price={plans.price}
+                duration={plans.duration}
+                loginCount={plans.loginCount}
+                users={plans.users}
+              />
+            ))
+          ) : (
+            <DataLoader />
+          )}
+        </div>
       </div>
     </>
   );

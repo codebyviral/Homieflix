@@ -6,5 +6,6 @@ import AuthForm from "./AuthForm.jsx"
 import Banner from "./Banner.jsx";
 import HomeContainer from './HomeContainer';
 import Video from "./Video.jsx";
-export { Navbar, Container, HomeContainer, PlanCard, DataLoader, Banner, Video }
+import BlogCard from "./BlogCard.jsx";
+export { Navbar, Container, HomeContainer, PlanCard, DataLoader, Banner, Video, BlogCard }
 

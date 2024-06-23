@@ -6,9 +6,10 @@ import { Oval } from "react-loader-spinner";
 import { Navbar } from "../Components/CompIndex";
 import passwordHideImg from "../assets/icons8-hide-90.png";
 import passwordShowImg from "../assets/icons8-eye-90.png";
+import { useAuth } from "../store/auth";
 
 const Signup = () => {
-  const registerURL = "https://homieflix.onrender.com/api/auth/register";
+  const registerURL = "https://homieflix.onrender.com/register";
 
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -17,6 +18,8 @@ const Signup = () => {
     password: "",
     Phone: "",
   });
+
+  const { storeTokenInLS } = useAuth();
 
   // Fetch email from homepage is user entered email exists
 
@@ -71,11 +74,11 @@ const Signup = () => {
       if (response.ok) {
         const res_data = await response.json();
         console.log(`res from server : ${res_data}`);
-        // storeTokenInLS(response);
+        storeTokenInLS(res_data.token);
         notify();
         setUser({ username: "", email: "", phone: "", password: "" });
         setTimeout(() => {
-          navigate("/login");
+          navigate("/");
         }, 2000);
       } else {
         notifyError();
