@@ -163,7 +163,10 @@ const Signup = () => {
           >
             {loading ? (
               <div className="loader-container">
-                <Oval color="#fff" height={20} width={20} />
+                <>
+                  <Oval color="#fff" height={20} width={20} />
+                  Processing...
+                </>
               </div>
             ) : (
               "Signup New Account ✨"

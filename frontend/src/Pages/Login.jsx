@@ -118,17 +118,18 @@ const Login = () => {
           <button type="submit" className="submit mt-4 rounded-pill">
             {loading ? (
               <div className="loader-container">
-                <Oval color="#fff" height={20} width={20} />
+                <>
+                  <Oval color="#fff" height={20} width={20} />
+                  Processing...
+                </>
               </div>
             ) : (
               "Login to your Account ✨"
             )}
           </button>
-          <p className="signup-link mt-4">
-            No Account?
-            <p>
-              <a href="/signup">Sign up</a>
-            </p>
+          <p className="signup-link nowrap mt-4">
+            No Account? 
+              <a className="mx-2" href="/signup">Sign up</a>
           </p>
         </form>
       </div>

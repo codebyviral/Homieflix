@@ -291,10 +291,16 @@ body {
   body {
     overflow-x: hidden;
   }
+  .tvContainer {
+    display: none !important;
+  }
   .labelText {
     top: 80px;
     position: relative;
     z-index: 2;
+  }
+  .streamingText {
+    font-size: calc(48px / 2);
   }
   .captionText {
     font-size: 16px;

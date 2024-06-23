@@ -12,7 +12,7 @@ const PlanCard = (props) => {
     event.preventDefault();
     const amount = razorpayPrice;
     const currency = "INR";
-    const response = await fetch("http://localhost:4000/order", {
+    const response = await fetch("https://homieflix.onrender.com/order", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -93,7 +93,10 @@ const PlanCard = (props) => {
             className="btn homie-anime loading-btn text-center buyNowBtn mt-5 rounded-pill text-light"
           >
             {loading ? (
-              <Oval color="#fff" height={20} width={20} />
+              <>
+                <Oval color="#fff" height={20} width={20} />
+                Placing Order...
+              </>
             ) : (
               "Subscribe"
             )}
