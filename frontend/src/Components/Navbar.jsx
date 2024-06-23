@@ -121,7 +121,7 @@ const Navbar = () => {
       {isLoggedin ? (
         <>
           <div className="mobileSingIn">
-            <Link to="/login">
+            <Link to="/logout">
               <li className="ce-auto linkItem">
                 <button className="navBtn bg-homie signIn fw-medium rounded">
                   Sign out
