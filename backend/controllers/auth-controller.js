@@ -6,8 +6,8 @@ const Plans = [
     {
         id: 0,
         title: "Basic Streaming Plan",
-        price: 2,
-        rzp_price: 200,
+        price: 10,
+        rzp_price: 1000,
         duration: "1 Day",
         loginCount: "Single device Login",
         users: "1 user"
