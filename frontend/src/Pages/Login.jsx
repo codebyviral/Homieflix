@@ -8,7 +8,7 @@ import { Oval } from "react-loader-spinner";
 import { anyError, loginSuccess } from "../Toasts";
 import { useAuth } from "../store/auth";
 const Login = () => {
-  const loginURL = "https://homieflix.onrender.com/login";
+  const loginURL = "https://homieflix.onrender.com/api/auth/login";
 
   const [user, setUser] = useState({
     email: "",

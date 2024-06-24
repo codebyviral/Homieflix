@@ -9,7 +9,7 @@ import passwordShowImg from "../assets/icons8-eye-90.png";
 import { useAuth } from "../store/auth";
 
 const Signup = () => {
-  const registerURL = "https://homieflix.onrender.com/register";
+  const registerURL = "https://homieflix.onrender.com/api/auth/register";
 
   const navigate = useNavigate();
   const [user, setUser] = useState({

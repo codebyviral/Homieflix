@@ -16,7 +16,7 @@ const Container = () => {
   const [dataLoaded, setDataLoaded] = useState(false);
   useEffect(() => {
     axios
-      .get("http://localhost:4000/plans")
+      .get("https://homieflix.onrender.com/plans")
       .then((response) => {
         setPlans(response.data);
         setDataLoaded(true);
