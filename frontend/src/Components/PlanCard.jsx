@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { DataLoader } from "../Components/CompIndex";
 import homieflixLogo from "../assets/Homieflix.png";
+import toast, { Toaster } from "react-hot-toast";
 import { Oval } from "react-loader-spinner";
 const PlanCard = (props) => {
   // Loader useState
@@ -33,14 +34,12 @@ const PlanCard = (props) => {
       image: homieflixLogo,
       order_id: order.id,
       handler: function (response) {
-        alert(response.razorpay_payment_id);
-        alert(response.razorpay_order_id);
-        alert(response.razorpay_signature);
+        alert(`Payment Successful Enjoy! 🎉`);
       },
       prefill: {
-        name: "Gaurav Kumar",
-        email: "gaurav.kumar@example.com",
-        contact: "9000090000",
+        name: "Homieflix User",
+        email: "homieflix@homie.com",
+        contact: "9426995196",
       },
       notes: {
         address: "Razorpay Corporate Office",
@@ -49,15 +48,28 @@ const PlanCard = (props) => {
         color: "#3399cc",
       },
     };
+
     var rzp1 = new window.Razorpay(options);
     rzp1.on("payment.failed", function (response) {
-      alert(response.error.code);
-      alert(response.error.description);
-      alert(response.error.source);
-      alert(response.error.step);
-      alert(response.error.reason);
-      alert(response.error.metadata.order_id);
-      alert(response.error.metadata.payment_id);
+      alert(`Payment Failed! 😞`);
+      const {
+        code,
+        description,
+        source,
+        step,
+        reason,
+        metadata: { order_id, payment_id },
+      } = response.error;
+      const payError = [
+        code,
+        description,
+        source,
+        step,
+        reason,
+        order_id,
+        payment_id,
+      ];
+      console.log(payError);
     });
     rzp1.open();
     setLoading(false);
@@ -69,6 +81,7 @@ const PlanCard = (props) => {
         style={{ width: "23rem", height: "500px" }}
         className="card planCard mx-5 lh-lg mt-5"
       >
+        <Toaster />
         <div className="card-body  fs-6  rounded">
           <div className="text-center nowrap">
             <h5 className="card-title planTitle fs-4 bg-dark text-light rounded mt-3">

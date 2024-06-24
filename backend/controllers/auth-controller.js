@@ -6,8 +6,8 @@ const Plans = [
     {
         id: 0,
         title: "Basic Streaming Plan",
-        price: 10,
-        rzp_price: 1000,
+        price: 2,
+        rzp_price: 200,
         duration: "1 Day",
         loginCount: "Single device Login",
         users: "1 user"
@@ -111,7 +111,7 @@ const login = async (req, res, next) => {
                 message: "Login Success!",
                 token: await userExists.generateToken(),
             })
-            
+
         } else {
             res.status(401).json({ message: "Invalid email or password" })
         }
@@ -119,6 +119,16 @@ const login = async (req, res, next) => {
     } catch (error) {
         res.status(500).send(`Internal Server Error`)
         next(error)
+    }
+}
+
+const user = async (req, res) => {
+    try {
+        return res.status(200).json({
+            msg: "User router Hi"
+        })
+    } catch (error) {
+        console.log(`User controller error. ${error}`)
     }
 }
 
@@ -147,6 +157,6 @@ const order = async (req, res) => {
     }
 }
 
-const authcontrollers = { home, register, plans, login, message, order }
+const authcontrollers = { home, register, user, plans, login, message, order }
 
 export { authcontrollers }
