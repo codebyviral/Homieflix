@@ -21,7 +21,7 @@ const Navbar = () => {
               }}
               className="textLogo ce-auto"
               src={textLogo}
-              alt="  "
+              alt="Logo"
             />
           </div>
           <button

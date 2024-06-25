@@ -93,7 +93,6 @@ const Signup = () => {
   return (
     <>
       <Navbar />
-      <Toaster />
       <div
         data-aos="flip-up"
         className="position-absolute signUpContainer top-50 start-50 translate-middle aos-init aos-animate"

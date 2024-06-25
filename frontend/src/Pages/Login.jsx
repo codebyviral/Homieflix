@@ -77,7 +77,6 @@ const Login = () => {
   return (
     <>
       <Navbar />
-      <Toaster />
       <div
         data-aos="flip-up"
         className="position-absolute top-50 start-50 translate-middle aos-init aos-animate"
@@ -128,8 +127,10 @@ const Login = () => {
             )}
           </button>
           <p className="signup-link nowrap mt-4">
-            No Account? 
-              <a className="mx-2" href="/signup">Sign up</a>
+            No Account?
+            <a className="mx-2" href="/signup">
+              Sign up
+            </a>
           </p>
         </form>
       </div>
