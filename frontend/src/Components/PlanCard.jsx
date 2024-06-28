@@ -1,26 +1,15 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { DataLoader } from "../Components/CompIndex";
 import homieflixLogo from "../assets/Homieflix.png";
+import toast, { Toaster } from "react-hot-toast";
 import { Oval } from "react-loader-spinner";
-import { useAuth } from "../store/auth";
-import { toast, Toaster } from "react-hot-toast";
 const PlanCard = (props) => {
   // Loader useState
-
   const [loading, setLoading] = useState(false);
 
-  // isLoggedin
-  const loginAlert = `Please login to proceed with payment.`;
-  const { isLoggedin } = useAuth();
-
   // Razorpay payment gateway
-
   const paymentHandler = async (event, razorpayPrice) => {
     setLoading(true);
-    if (!isLoggedin) {
-      toast.error(loginAlert);
-      setLoading(false);
-      return;
-    }
     event.preventDefault();
     const amount = razorpayPrice;
     const currency = "INR";
@@ -62,7 +51,7 @@ const PlanCard = (props) => {
 
     var rzp1 = new window.Razorpay(options);
     rzp1.on("payment.failed", function (response) {
-      toast.error(payError);
+      alert(`Payment Failed! 😞`);
       const {
         code,
         description,
@@ -80,7 +69,7 @@ const PlanCard = (props) => {
         order_id,
         payment_id,
       ];
-      toast.error(payError);
+      console.log(payError);
     });
     rzp1.open();
     setLoading(false);
@@ -92,6 +81,7 @@ const PlanCard = (props) => {
         style={{ width: "23rem", height: "500px" }}
         className="card planCard mx-5 lh-lg mt-5"
       >
+        <Toaster />
         <div className="card-body  fs-6  rounded">
           <div className="text-center nowrap">
             <h5 className="card-title planTitle fs-4 bg-dark text-light rounded mt-3">
