@@ -7,13 +7,18 @@ import axios from "axios";
 import { Oval } from "react-loader-spinner";
 
 const Container = () => {
-  useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  }, []);
-
   const [plans, setPlans] = useState([]);
   const [dataLoaded, setDataLoaded] = useState(false);
+  const [dots, setDots] = useState(".");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDots((prev) => (prev.length < 3 ? prev + "." : "."));
+    }, 500); // Adds a dot every 500ms, resets after 3 dots
+
+    return () => clearInterval(interval); // Clear interval on component unmount
+  }, []);
+
   useEffect(() => {
     axios
       .get("https://homieflix.onrender.com/plans")
@@ -32,11 +37,7 @@ const Container = () => {
     <>
       <HomeContainer />
       <div className="planDivs">
-        <div
-          data-aos="fade-in"
-          data-aos-duration="1000"
-          className="text-center ce-auto homie-container-2 mt-5"
-        >
+        <div className="text-center ce-auto homie-container-2 mt-5">
           <h3
             onClick={() => {
               navigate("/newsroom");
@@ -46,10 +47,7 @@ const Container = () => {
             Homieflix Streaming Plans
           </h3>
         </div>
-        <div
-          data-aos="fade-up"
-          className="justify-content-center cardFlex d-flex mt-5"
-        >
+        <div className="justify-content-center cardFlex d-flex mt-5">
           {dataLoaded ? (
             plans.map((plans) => (
               <PlanCard
@@ -64,10 +62,9 @@ const Container = () => {
             ))
           ) : (
             <div className="loader-container">
-              <>
-                <Oval color="#fff" height={20} width={20} />
-                Processing...
-              </>
+              <h5 className="mt-3 text-center">
+                Loading the Best Plans for You{dots}
+              </h5>
             </div>
           )}
         </div>
