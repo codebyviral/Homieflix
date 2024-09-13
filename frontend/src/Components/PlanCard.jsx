@@ -1,11 +1,22 @@
-import React, { useState } from "react";
-import { DataLoader } from "../Components/CompIndex";
+import React, { useEffect, useState } from "react";
 import homieflixLogo from "../assets/Homieflix.png";
 import toast, { Toaster } from "react-hot-toast";
 import { Oval } from "react-loader-spinner";
+
 const PlanCard = (props) => {
   // Loader useState
   const [loading, setLoading] = useState(false);
+  const [dots, setDots] = useState("...");
+
+  // useEffect(() => {
+  //   if (loading) {
+  //     const interval = setInterval(() => {
+  //       setDots((prev) => (prev.length < 3 ? prev + "." : "."));
+  //     }, 500);
+
+  //     return () => clearInterval(interval);
+  //   }
+  // }, [loading]);
 
   // Razorpay payment gateway
   const paymentHandler = async (event, razorpayPrice) => {
@@ -82,7 +93,7 @@ const PlanCard = (props) => {
         className="card planCard mx-5 lh-lg mt-5"
       >
         <Toaster />
-        <div className="card-body  fs-6  rounded">
+        <div className="card-body fs-6 rounded">
           <div className="text-center nowrap">
             <h5 className="card-title planTitle fs-4 bg-dark text-light rounded mt-3">
               {props.title}
@@ -108,7 +119,14 @@ const PlanCard = (props) => {
             {loading ? (
               <>
                 <Oval color="#fff" height={20} width={20} />
-                Processing...
+                <span className="ml-2">
+                  Processing
+                  {dots.split("").map((dot, index) => (
+                    <span key={index} className={`dot dot-${index + 1}`}>
+                      {dot}
+                    </span>
+                  ))}
+                </span>
               </>
             ) : (
               "Subscribe"

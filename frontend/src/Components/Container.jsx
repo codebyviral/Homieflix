@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import { useNavigate } from "react-router-dom";
@@ -9,15 +10,15 @@ import { Oval } from "react-loader-spinner";
 const Container = () => {
   const [plans, setPlans] = useState([]);
   const [dataLoaded, setDataLoaded] = useState(false);
-  const [dots, setDots] = useState(".");
+  const [dots, setDots] = useState("...");
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDots((prev) => (prev.length < 3 ? prev + "." : "."));
-    }, 500); // Adds a dot every 500ms, resets after 3 dots
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setDots((prev) => (prev.length < 3 ? prev + "." : "."));
+  //   }, 500);
 
-    return () => clearInterval(interval); // Clear interval on component unmount
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   useEffect(() => {
     axios
@@ -62,8 +63,13 @@ const Container = () => {
             ))
           ) : (
             <div className="loader-container">
-              <h5 className="mt-3 text-center">
-                Loading the Best Plans for You{dots}
+              <h5 className="ml-2">
+                Loading the Best Plans for You
+                {dots.split("").map((dot, index) => (
+                  <h5 key={index} className={`dot dot-${index + 1}`}>
+                    {dot}
+                  </h5>
+                ))}
               </h5>
             </div>
           )}
