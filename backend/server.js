@@ -34,6 +34,7 @@ const PORT = 4000;
 
 console.log(`Test commit1`)
 console.log(`Test commit2`)
+console.log(`Test commit3`)
 
 
 connectDb().then(() => {
