@@ -32,11 +32,6 @@ app.use("/api/newsroom", blogRoute)
 
 const PORT = 4000;
 
-console.log(`Test commit2`)
-console.log(`Test commit2`)
-console.log(`Test commit2`)
-console.log(`Test commit2`)
-
 connectDb().then(() => {
     app.listen(PORT, () => {
         console.log(`Homieflix is live at  http://localhost:${PORT} 🎉`);
