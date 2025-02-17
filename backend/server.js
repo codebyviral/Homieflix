@@ -37,5 +37,3 @@ connectDb().then(() => {
         console.log(`Homieflix is live at  http://localhost:${PORT} 🎉`);
     })
 })
-
-console.log(`eg commit`)
