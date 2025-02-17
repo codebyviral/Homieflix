@@ -37,6 +37,8 @@ console.log(`Test commit2`)
 console.log(`Test commit3`)
 console.log(`Test commit2`)
 console.log(`Test commit2`)
+console.log(`Test commit2`)
+
 
 connectDb().then(() => {
     app.listen(PORT, () => {
